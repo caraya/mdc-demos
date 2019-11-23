@@ -9,7 +9,19 @@ module.exports = [{
     },
     module: {
       rules: [{
-        test: /\.scss$/,
+        test: /\.(woff(2)?|ttf|eot|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'dist/fonts/'
+            }
+          }
+        ]
+        },
+        {
+          test: /\.scss$/,
         use: [
           {
             loader: 'file-loader',
